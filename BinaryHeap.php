@@ -178,6 +178,7 @@ class BinaryHeap implements Heap
             $width = $width / 2;
         }
 
+
         foreach ($ret as $str) {
             echo $str . PHP_EOL;
         }
