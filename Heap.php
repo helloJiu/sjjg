@@ -15,7 +15,9 @@ interface Heap
 
     public function get();
 
-    public function replace();
+    public function replace($element);
+
+    public function isEmpty();
 
 
 }
