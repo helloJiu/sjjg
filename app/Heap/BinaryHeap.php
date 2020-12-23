@@ -5,7 +5,7 @@
  * Time: 16:22
  */
 
-include "Heap.php";
+namespace app\Heap;
 
 class BinaryHeap implements Heap
 {

@@ -4,6 +4,7 @@
  * Date: 2020/12/7
  * Time: 16:22
  */
+namespace app\Heap;
 
 interface Heap
 {

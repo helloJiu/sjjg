@@ -6,6 +6,8 @@
  * Date: 2020/12/12
  * Time: 13:13
  */
+namespace app\Tree;
+
 class Trie
 {
     private $root;

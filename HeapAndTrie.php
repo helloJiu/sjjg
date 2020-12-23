@@ -5,8 +5,11 @@
  * Time: 9:54
  */
 
-include "BinaryHeap.php";
-include "Trie.php";
+require "vendor/autoload.php";
+
+
+use app\Heap\BinaryHeap;
+use app\Tree\Trie;
 
 
 function testBinaryHeap(){
