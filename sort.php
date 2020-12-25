@@ -5,16 +5,19 @@
  * Time: 9:54
  */
 
-use app\Sort\QuickSort;
+use app\Sort\SortMain;
 use app\Util\RandUtil;
 
 require "vendor/autoload.php";
 
-$arr = RandUtil::randInt(100, 10000);
+$arr = RandUtil::generatePersons(10000, 1000000);
+$comparor = function ($e1, $e2){
+    return $e1->id > $e2->id;
+};
 
-$quick = new QuickSort($arr);
-$quick->sort();
-print_r($quick->getArr());
+SortMain::testQuick($arr, $comparor);
+
+
 
 
 
