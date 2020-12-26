@@ -5,7 +5,7 @@
  * Time: 17:29
  */
 
-namespace app\Util;
+namespace App\Util;
 
 
 class TimeUtil

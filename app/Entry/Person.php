@@ -4,7 +4,7 @@
  * Date: 2020/12/25
  * Time: 17:20
  */
-namespace app\Entry;
+namespace App\Entry;
 
 
 class Person

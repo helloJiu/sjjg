@@ -1,7 +1,7 @@
 <?php
 
-namespace app\Util;
-use app\Entry\Person;
+namespace App\Util;
+use App\Entry\Person;
 
 /**
  * Created by helloJiu.
@@ -11,7 +11,7 @@ use app\Entry\Person;
  */
 class RandUtil
 {
-    public static function randInt($count, $max=1000){
+    public static function getIntegers($count, $max=1000){
         $elements = [];
         for($i=0; $i<$count; $i++){
             $elements[] = mt_rand(0,$max);
@@ -34,7 +34,7 @@ class RandUtil
 
     public static function generatePersons($count, $max){
         $persons = [];
-        $ids = self::randInt($count, $max);
+        $ids = self::getIntegers($count, $max);
         foreach($ids as $id){
             $persons[] = new Person($id, self::getRandChar(8));
         }

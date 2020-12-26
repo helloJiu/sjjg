@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Sort;
+namespace App\Sort;
 /**
  * Created by helloJiu.
  * Idea: 认真编码 快乐生活
