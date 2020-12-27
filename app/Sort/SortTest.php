@@ -14,11 +14,11 @@ use App\Sort\Sort;
 use App\Util\RandUtil;
 use App\Util\TimeUtil;
 
-require "../vendor/autoload.php";
+require "../../vendor/autoload.php";
 
 class SortTest
 {
-    public function testSort()
+    public static function testSort()
     {
         //$arr = RandUtil::generatePersons(5, 1000000);
         $arr = RandUtil::getIntegers(10000, 1000000);
@@ -49,7 +49,7 @@ class SortTest
     }
 }
 
-(new SortTest())->testSort();
+SortTest::testSort();
 
 
 

@@ -8,12 +8,12 @@ use App\Heap\BinaryHeap;
  * Date: 2020/12/26
  * Time: 10:56
  */
-require "../vendor/autoload.php";
+require "../../vendor/autoload.php";
 
 class HeapTest
 {
 
-    public function testBinaryHeap($elements, $comparator = null)
+    public static function testBinaryHeap($elements, $comparator = null)
     {
         $heap = new BinaryHeap($elements, $comparator);
         //$heap->replace(1001);
@@ -58,5 +58,4 @@ $elements = \App\Util\RandUtil::getIntegers(100, 1000);
 //};
 
 
-$heap = new HeapTest();
-$heap->testBinaryHeap($elements);
+HeapTest::testBinaryHeap($elements);
