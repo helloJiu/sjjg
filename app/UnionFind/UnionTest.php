@@ -41,6 +41,7 @@ class UnionTest
     {
         for ($i = 0; $i < $length; $i++) {
             $uf->union(random_int(1, $length-1), random_int(1, $length-1));
+            $uf->isSame(random_int(1, $length-1), random_int(1, $length-1));
         }
     }
 }
