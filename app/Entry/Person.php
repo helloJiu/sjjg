@@ -19,4 +19,13 @@ class Person
         $this->id = $id;
     }
 
+    public function compare(Person $p2){
+        return $this->id - $p2->id;
+    }
+
+    public function __toString()
+    {
+        return $this->id . ':'. $this->name;
+    }
+
 }

@@ -1,5 +1,8 @@
 <?php
-use App\Tree\Trie;
+
+namespace App\Tree;
+
+use App\Tree\Printer\TreePrinter;
 
 /**
  * Created by helloJiu.
@@ -7,7 +10,9 @@ use App\Tree\Trie;
  * Date: 2020/12/26
  * Time: 10:59
  */
-class SingleTest
+require "../../vendor/autoload.php";
+
+class TreeTest
 {
     function testTrie(){
         $trie = new Trie();
@@ -25,4 +30,24 @@ class SingleTest
         var_dump($trie->prefixExist('中国1'));
 
     }
+
+
+    public static function testBinaryTree(){
+        $tree = new BinarySearchTree();
+        $tree->add(4);
+        $tree->add(8);
+        $tree->add(3);
+        $tree->add(5);
+        $tree->add(12);
+        $tree->add(2);
+        $tree->add(9);
+        $tree->add(16);
+        $tree->add(6);
+        $tree->add(1);
+
+        (new TreePrinter($tree))->print();
+    }
 }
+
+TreeTest::testBinaryTree();
+

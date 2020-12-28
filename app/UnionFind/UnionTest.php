@@ -48,6 +48,7 @@ class UnionTest
 
 //UnionTest::testUnion();
 
+// ini_set('memory_limit','1200M');
 $length = 2000000;
 $ufs = [
     //new UnionFindQF($length),
