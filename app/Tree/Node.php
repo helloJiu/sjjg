@@ -8,6 +8,8 @@
 namespace App\Tree;
 
 
+use App\Entry\Comparator;
+
 class Node
 {
     public $left = null;
@@ -21,16 +23,17 @@ class Node
         $this->parent = $parent;
     }
 
-    public function isLeaf(){
+    public function isLeaf()
+    {
         return $this->left == null && $this->right == null;
     }
 
     public function compare($e2)
     {
-        if (!is_object($this->e) || isset($this->e->comparator)) {
-            return $this->e - $e2;
+        if ($this->e instanceof Comparator) {
+            return call_user_func([$this->e, 'compare'], $e2);
         }
 
-        return call_user_func($this->e->comparator, $this->e, $e2);
+        return $this->e - $e2;
     }
 }

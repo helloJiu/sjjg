@@ -6,8 +6,7 @@
  */
 namespace App\Entry;
 
-
-class Person
+class Person implements Comparator
 {
     public $id;
 
@@ -19,7 +18,7 @@ class Person
         $this->id = $id;
     }
 
-    public function compare(Person $p2){
+    public function compare($p2){
         return $this->id - $p2->id;
     }
 

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Util;
+
 use App\Entry\Person;
 
 /**
