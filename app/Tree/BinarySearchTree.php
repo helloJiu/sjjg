@@ -41,4 +41,43 @@ class BinarySearchTree extends BinaryTree
         }
         $this->size++;
     }
+
+    public function contains($e){
+        return $this->node($e) != null;
+    }
+
+    private function node($e){
+        $this->checkElement($e);
+        $node = $this->root;
+        while ($node != null){
+            $ret = $node->compare($e);
+            if($ret > 0){
+                $node = $node->left;
+            }elseif($ret < 0){
+                $node = $node->right;
+            }else{
+                return $node;
+            }
+        }
+        return $node;
+    }
+
+    public function backendNode($e){
+        $node = $this->node($e);
+        if(!$node){
+            throw new NotFoundException();
+        }
+        if($node->right){
+            // 如果节点存在右子树, 则后驱节点肯定在右子树上
+            $back_node = $node->right;
+            while ($back_node->left != null){
+                $back_node = $back_node->left;
+            }
+            return $back_node;
+        }
+        // $node = $node->parent;
+        // while($node->parent != null && $node->parent->left == )
+
+
+    }
 }

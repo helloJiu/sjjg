@@ -12,8 +12,17 @@ use App\Entry\Comparator;
 
 class Node
 {
+    /**
+     * @var Node
+     */
     public $left = null;
+    /**
+     * @var Node
+     */
     public $right = null;
+    /**
+     * @var Node
+     */
     public $parent = null;
     public $e;
 

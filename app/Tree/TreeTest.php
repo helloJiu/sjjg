@@ -2,6 +2,7 @@
 
 namespace App\Tree;
 
+use App\Entry\Person;
 use App\Tree\Printer\TreePrinter;
 use App\Util\RandUtil;
 
@@ -34,23 +35,25 @@ class TreeTest
 
 
     public static function testBinaryTree(){
+        $a = [];
+        $p = new Person(1, 2);
+        $a[strval($p)] = 1;
+        var_dump(isset($a[strval($p)]));
+        return;
         $tree = new BinarySearchTree();
-        // $tree->add(4);
-        // $tree->add(8);
-        // $tree->add(3);
-        // $tree->add(5);
-        // $tree->add(12);
-        // $tree->add(2);
-        // $tree->add(9);
-        // $tree->add(16);
-        // $tree->add(6);
-        // $tree->add(1);
-        $persons = RandUtil::generatePersons(10, 100);
-        foreach($persons as &$person){
-            $tree->add($person);
+        $ints = RandUtil::getIntegers(20, 100);
+        foreach($ints as $int){
+            $tree->add($int);
         }
+        // $persons = RandUtil::generatePersons(10, 100);
+        // foreach($persons as &$person){
+        //     $tree->add($person);
+        // }
 
         (new TreePrinter($tree))->print();
+        var_dump($tree->contains(11));
+        var_dump($tree->contains(1));
+        var_dump($tree->contains(16));
     }
 }
 
