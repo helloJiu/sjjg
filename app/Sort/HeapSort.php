@@ -15,10 +15,9 @@ class HeapSort extends Sort
 {
     private $heap;
 
-    public function __construct($data, $comparator = null)
+    public function __construct($data)
     {
-        parent::__construct([], $comparator);
-        $this->heap = new BinaryHeap($data, $comparator);
+        $this->heap = new BinaryHeap($data);
         //$this->heap->print();
     }
 

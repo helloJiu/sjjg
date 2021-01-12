@@ -54,7 +54,7 @@ class ShellSort extends Sort
                     $j = $i;
                     //echo "$i"."_$j"."_$step"."_$k" . PHP_EOL;
                     // $j 大于 插入排序开始时第一个元素索引
-                    while ($j > $k && $this->compare($this->data[$j - $step], $v)) {
+                    while ($j > $k && $this->compare($this->data[$j - $step], $v) > 0) {
                         //echo "  ". "$i"."_$j"."_$step"."_$k" . PHP_EOL;
                         $this->data[$j] = $this->data[$j - $step];
                         $j = $j - $step;

@@ -38,7 +38,7 @@ class QuickSort extends Sort
             // 从后向前比
             // 元素相同时, 应该交换
             while ($begin < $end){
-                if($this->compare($this->data[$end], $v)){
+                if($this->compare($this->data[$end], $v) > 0){
                     // 如果结尾位置元素大于轴点, 直接向前挪动
                     $end--;
                 }else{
@@ -51,7 +51,7 @@ class QuickSort extends Sort
 
             // 从前向后比
             while ($begin < $end){
-                if($this->compare($v, $this->data[$begin])){
+                if($this->compare($v, $this->data[$begin]) > 0){
                     $begin++;
                 }else{
                     // 将begin的位置覆盖到$end的位置, 然后begin的位置就可以重新覆盖了

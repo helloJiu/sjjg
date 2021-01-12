@@ -16,7 +16,7 @@ class SelectSort extends Sort
         for ($i = 0; $i < count($this->data); $i++) {
             $min = $i;
             for ($j = $i + 1; $j < count($this->data); $j++) {
-                if($this->compare($this->data[$min], $this->data[$j])){
+                if($this->compare($this->data[$min], $this->data[$j]) > 0){
                     $min = $j;
                 }
             }

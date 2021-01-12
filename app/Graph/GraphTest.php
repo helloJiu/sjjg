@@ -14,13 +14,24 @@ class GraphTest
 {
     public function test(){
         $graph = new Graph();
-        $graph->addEdge(1,2);
-        $graph->addEdge(2,3);
-        $graph->addEdge(4,5);
-        $graph->addEdge(1,3);
-        $graph->addEdge(4,2);
+        $graph->addEdge('E', 'A', 30);
+        $graph->addEdge('A', 'G', 100);
+        $graph->addEdge('A', 'D', 80);
+        $graph->addEdge('A', 'E', 50);
+        $graph->addEdge('E', 'F', 20);
+        $graph->addEdge('F', 'G', 10);
+        $graph->addEdge('E', 'D', 10);
+        $graph->addEdge('E', 'B', 20);
+        $graph->addEdge('H', 'I', 20);
 
-        $graph->print();
+        // $graph->print();
+        // $data = $graph->getShortPaths('A');
+
+        $paths = $graph->mst();
+        print_r($paths);
+
+
+
     }
 }
 

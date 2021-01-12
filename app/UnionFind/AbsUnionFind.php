@@ -29,6 +29,12 @@ class AbsUnionFind
         }
     }
 
+    public function initData($data){
+        foreach($data as $v){
+
+        }
+    }
+
     /**
      * 查找顶级节点
      * @param $v

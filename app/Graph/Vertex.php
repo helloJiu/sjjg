@@ -13,8 +13,14 @@ class Vertex
 {
     public $value;
 
+    /**
+     * @var Edge[]
+     */
     public $in_edges = [];
 
+    /**
+     * @var Edge[]
+     */
     public $out_edges = [];
 
     public function __construct($value)
@@ -24,5 +30,9 @@ class Vertex
 
     public function __toString(){
         return strval($this->value);
+    }
+
+    public function isSame($vertex){
+        return strval($vertex) == strval($this);
     }
 }
