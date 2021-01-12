@@ -32,4 +32,8 @@ class Vertex
     {
         return strval($this->value);
     }
+
+    public function isSame($vertex){
+        return strval($vertex) == strval($this);
+    }
 }

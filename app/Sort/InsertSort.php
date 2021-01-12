@@ -16,7 +16,7 @@ class InsertSort extends Sort
         for ($i = 1; $i < count($this->data); $i++) {
             $v = $this->data[$i];
             $j = $i;
-            while ($j>0 && $this->compare($this->data[$j-1], $v)){
+            while ($j>0 && $this->compare($this->data[$j-1], $v) > 0){
                 $this->data[$j] = $this->data[$j-1];
                 $j--;
             }

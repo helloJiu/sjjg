@@ -20,11 +20,8 @@ class SortTest
 {
     public static function testSort()
     {
-        //$arr = RandUtil::generatePersons(5, 1000000);
-        $arr = RandUtil::getIntegers(10000, 1000000);
-        $comparator = function ($e1, $e2) {
-            return $e1->id > $e2->id;
-        };
+        $arr = RandUtil::generatePersons(100, 1000);
+        // $arr = RandUtil::getIntegers(5000, 1000000);
 
         $ex_sort = new QuickSort($arr);
         $ex_sort->sort();
@@ -44,7 +41,7 @@ class SortTest
             // 测试各排序后数组是否相等, 相等表示排序正确
             var_dump($old_sort->getData() == $sort->getData());
             $old_sort = $sort;
-            //print_r($sort->getData());
+            print_r($sort->getData());
         }
     }
 }

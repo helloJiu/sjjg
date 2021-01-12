@@ -9,7 +9,9 @@
 namespace App\Graph;
 
 
-class Edge
+use App\Entry\Comparator;
+
+class Edge implements Comparator
 {
     /**
      * @var Vertex
@@ -37,5 +39,9 @@ class Edge
     public function __toString()
     {
         return "{$this->from}___{$this->to}";
+    }
+
+    public function compare($edge2){
+        return $this->weight - $edge2->weight;
     }
 }

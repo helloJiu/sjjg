@@ -7,6 +7,7 @@
 
 namespace App\Heap;
 
+use App\Entry\Comparator;
 use SplQueue;
 
 class BinaryHeap implements Heap
@@ -19,15 +20,9 @@ class BinaryHeap implements Heap
      * @var array
      */
     private $elements = [];
-    /**
-     * @var function
-     */
-    private $comparator = null;
 
-    public function __construct($elements = [], $comparator = null)
+    public function __construct($elements = [])
     {
-        $this->comparator = $comparator;
-
         if ($elements) {
             $this->heapify($elements);
         }
@@ -61,7 +56,7 @@ class BinaryHeap implements Heap
         $element = $this->elements[$index];
         while ($index > 0) {
             $p_index = $this->getPIndex($index);
-            if ($this->compare($element, $this->elements[$p_index])) {
+            if ($this->compare($element, $this->elements[$p_index]) > 0) {
                 break;
             }
             $p_el = $this->elements[$p_index];
@@ -104,14 +99,14 @@ class BinaryHeap implements Heap
 
             if ($right_index < $this->size) {
                 $right = $this->elements[$right_index];
-                if($this->compare($max, $right)){
+                if($this->compare($max, $right) > 0){
                     $max = $right;
                     $max_index = $right_index;
                 }
 
             }
 
-            if ($this->compare($max, $element)) {
+            if ($this->compare($max, $element) > 0) {
                 break;
             }
             // 下移
@@ -214,11 +209,11 @@ class BinaryHeap implements Heap
     }
 
     private function compare($e1, $e2){
-        if(!$this->comparator){
-            return $e1 > $e2;
+        if ($e1 instanceof Comparator) {
+            return call_user_func([$e1, 'compare'], $e2);
         }
 
-        return call_user_func($this->comparator, $e1, $e2);
+        return $e1 - $e2;
     }
 
     public function getTopElement(){

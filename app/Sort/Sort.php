@@ -8,16 +8,15 @@
 namespace App\Sort;
 
 
+use App\Entry\Comparator;
+
 class Sort
 {
-    protected $comparator;
-
     protected $data;
 
-    public function __construct($data, $comparator = null)
+    public function __construct($data)
     {
         $this->data = $data;
-        $this->comparator = $comparator;
     }
 
     public function sort()
@@ -27,11 +26,11 @@ class Sort
 
     protected function compare($e1, $e2)
     {
-        if (!$this->comparator) {
-            return $e1 > $e2;
+        if ($e1 instanceof Comparator) {
+            return call_user_func([$e1, 'compare'], $e2);
         }
 
-        return call_user_func($this->comparator, $e1, $e2);
+        return $e1 - $e2;
     }
 
     public function getData()

@@ -16,14 +16,22 @@ class GraphTest
 {
     public function test(){
         $graph = new Graph();
-        $graph->addEdge('V1', 'V0', 9);
-        $graph->addEdge('V1', 'V2', 8);
-        // $graph->addEdge('V0', 'V3', 7);
-        $graph->addEdge('V2', 'V0', 7);
-        $graph->addEdge('V2', 'V3', 2);
-        $graph->addEdge('V6', 'V7', 12);
-        $graph->addEdge('V3', 'V6', 12);
-        $graph->addEdge('V3', 'V4', 1);
+        $graph->addEdge('E', 'A', 30);
+        $graph->addEdge('A', 'G', 100);
+        $graph->addEdge('A', 'D', 80);
+        $graph->addEdge('A', 'E', 50);
+        $graph->addEdge('E', 'F', 20);
+        $graph->addEdge('F', 'G', 10);
+        $graph->addEdge('E', 'D', 10);
+        $graph->addEdge('E', 'B', 20);
+        $graph->addEdge('H', 'I', 20);
+
+        // $graph->print();
+        // $data = $graph->getShortPaths('A');
+
+        $paths = $graph->mst();
+        print_r($paths);
+
 
         $graph->print();
         $visitor = function ($v){
@@ -35,6 +43,7 @@ class GraphTest
         $graph->dfsByRecusion('V1', $visitor);
         PrintUtil::println('-------------');
         $graph->dfsByLoop('V1', $visitor);
+
 
 
     }
