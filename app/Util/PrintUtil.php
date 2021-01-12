@@ -15,7 +15,11 @@ class PrintUtil
         if(is_string($data) || is_numeric($data)){
             echo $data . PHP_EOL;
         }elseif(is_array($data)){
-            echo json_encode($data) . PHP_EOL;
+            foreach ($data as &$item){
+                echo "[array] start___" . PHP_EOL;
+                echo strval($item) . PHP_EOL;
+                echo "[array] end___" . PHP_EOL;
+            }
         }else{
             var_dump($data);
         }

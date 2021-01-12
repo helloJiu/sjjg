@@ -13,8 +13,14 @@ class Vertex
 {
     public $value;
 
+    /**
+     * @var Edge[]
+     */
     public $in_edges = [];
 
+    /**
+     * @var Edge[]
+     */
     public $out_edges = [];
 
     public function __construct($value)
@@ -22,7 +28,8 @@ class Vertex
         $this->value = $value;
     }
 
-    public function __toString(){
+    public function __toString()
+    {
         return strval($this->value);
     }
 }

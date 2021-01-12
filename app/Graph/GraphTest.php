@@ -8,19 +8,35 @@
 
 namespace App\Graph;
 
+use App\Util\PrintUtil;
+
 require "../../vendor/autoload.php";
 
 class GraphTest
 {
     public function test(){
         $graph = new Graph();
-        $graph->addEdge(1,2);
-        $graph->addEdge(2,3);
-        $graph->addEdge(4,5);
-        $graph->addEdge(1,3);
-        $graph->addEdge(4,2);
+        $graph->addEdge('V1', 'V0', 9);
+        $graph->addEdge('V1', 'V2', 8);
+        // $graph->addEdge('V0', 'V3', 7);
+        $graph->addEdge('V2', 'V0', 7);
+        $graph->addEdge('V2', 'V3', 2);
+        $graph->addEdge('V6', 'V7', 12);
+        $graph->addEdge('V3', 'V6', 12);
+        $graph->addEdge('V3', 'V4', 1);
 
         $graph->print();
+        $visitor = function ($v){
+            PrintUtil::println($v);
+        };
+
+        $graph->bfs('V1');
+        PrintUtil::println('-------------');
+        $graph->dfsByRecusion('V1', $visitor);
+        PrintUtil::println('-------------');
+        $graph->dfsByLoop('V1', $visitor);
+
+
     }
 }
 
